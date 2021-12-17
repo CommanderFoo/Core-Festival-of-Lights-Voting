@@ -5,6 +5,8 @@
 
 local API = {}
 
+API.DEBUG = false
+
 ---@param data table
 ---@param entries table<integer, CoreObject>
 ---@return string
@@ -43,7 +45,7 @@ end
 ---@param vote_data table<string, integer>
 ---@param entries table<integer, CoreObject>
 ---@return integer
-API.get_total_votes = function(vote_data, entries)
+API.get_total_player_votes = function(vote_data, entries)
 	local count = 0
 	local children = entries:GetChildren()
 
@@ -56,6 +58,34 @@ API.get_total_votes = function(vote_data, entries)
 	end
 
 	return count
+end
+
+API.get_entry_info = function(unique_key, entries)
+	for i, e in ipairs(entries) do
+		if(e:GetCustomProperty("UniqueKey") == unique_key) then
+			local title = e:GetCustomProperty("LeaderboardTitle")
+			local creator = e:GetCustomProperty("CreatorName")
+
+			return unique_key, title, creator
+		end
+	end
+end
+
+API.create_private_data = function(player_data, entries)
+	local children = entries:GetChildren()
+	local data = {}
+
+	for i, child in ipairs(children) do
+		local unique_key = child:GetCustomProperty("UniqueKey")
+
+		data[unique_key] = 0
+
+		if(player_data[unique_key] ~= nil) then
+			data[unique_key] = player_data[unique_key] or 0
+		end
+	end
+
+	return data
 end
 
 return API

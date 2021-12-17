@@ -12,8 +12,23 @@ local ROOT = script:GetCustomProperty("Root"):WaitForObject()
 ---@type Folder
 local DATA_HOLDER = script:GetCustomProperty("DataHolder"):WaitForObject()
 
----@type UIContainer
-local UI_CONTAINER = script:GetCustomProperty("UIContainer"):WaitForObject()
+---@type UIPanel
+local VOTE_PANEL = script:GetCustomProperty("VotePanel"):WaitForObject()
+
+---@type UIPanel
+local UNVOTE_PANEL = script:GetCustomProperty("UnvotePanel"):WaitForObject()
+
+---@type Folder
+local ENTRIES = ROOT:GetCustomProperty("Entries"):WaitForObject()
+
+---@type UIImage
+local VOTE_ENTRY_IMAGE = script:GetCustomProperty("VoteEntryImage"):WaitForObject()
+
+---@type UIText
+local VOTE_ENTRY_TITLE = script:GetCustomProperty("VoteEntryTitle"):WaitForObject()
+
+---@type UIText
+local VOTE_ENTRY_CREATOR = script:GetCustomProperty("VoteEntryCreator"):WaitForObject()
 
 ---@type UIButton
 local VOTE_BUTTON = script:GetCustomProperty("VoteButton"):WaitForObject()
@@ -21,40 +36,105 @@ local VOTE_BUTTON = script:GetCustomProperty("VoteButton"):WaitForObject()
 ---@type UIButton
 local UNVOTE_BUTTON = script:GetCustomProperty("UnvoteButton"):WaitForObject()
 
----@type Folder
-local ENTRIES = ROOT:GetCustomProperty("Entries"):WaitForObject()
+---@type UIText
+local UNVOTE_ENTRY_TITLE = script:GetCustomProperty("UnvoteEntryTitle"):WaitForObject()
+
+---@type UIText
+local UNVOTE_ENTRY_CREATOR = script:GetCustomProperty("UnvoteEntryCreator"):WaitForObject()
+
+---@type UIImage
+local UNVOTE_ENTRY_IMAGE = script:GetCustomProperty("UnvoteEntryImage"):WaitForObject()
 
 local local_player = Game.GetLocalPlayer()
 local current_unique_key = nil
 local children = ENTRIES:GetChildren()
+local player_votes = {}
+
+local function show_vote_ui()
+	VOTE_PANEL.visibility = Visibility.FORCE_ON
+	UI.SetCanCursorInteractWithUI(true)
+	UI.SetCursorVisible(true)
+end
+
+local function hide_vote_ui()
+	VOTE_PANEL.visibility = Visibility.FORCE_OFF
+	UI.SetCanCursorInteractWithUI(false)
+	UI.SetCursorVisible(false)
+end
+
+local function show_unvote_ui()
+	UNVOTE_PANEL.visibility = Visibility.FORCE_ON
+	UI.SetCanCursorInteractWithUI(true)
+	UI.SetCursorVisible(true)
+end
+
+local function hide_unvote_ui()
+	UNVOTE_PANEL.visibility = Visibility.FORCE_OFF
+	UI.SetCanCursorInteractWithUI(false)
+	UI.SetCursorVisible(false)
+end
 
 local function on_trigger_enter(trigger, other)
 	if(other:IsA("Player") and other == local_player) then
-		UI_CONTAINER.visibility = Visibility.FORCE_ON
-		UI.SetCanCursorInteractWithUI(true)
-		UI.SetCursorVisible(true)
+		local unique_key, title, creator = API.get_entry_info(current_unique_key, children)
+
+		if(title ~= nil) then
+			if(player_votes[unique_key] ~= nil and player_votes[unique_key] > 0 and not API.DEBUG) then
+				VOTE_BUTTON.isInteractable = false
+				UNVOTE_BUTTON.isInteractable = true
+				UNVOTE_ENTRY_TITLE.text = title
+				UNVOTE_ENTRY_CREATOR.text = creator
+
+				show_unvote_ui()
+			else
+				VOTE_BUTTON.isInteractable = true
+				UNVOTE_BUTTON.isInteractable = false
+				VOTE_ENTRY_TITLE.text = title
+				VOTE_ENTRY_CREATOR.text = creator
+
+				show_vote_ui()
+			end
+		end
 	end
 end
 
 local function on_trigger_exit(trigger, other)
 	if(other:IsA("Player") and other == local_player) then
 		current_unique_key = nil
-
-		UI_CONTAINER.visibility = Visibility.FORCE_OFF
-		UI.SetCanCursorInteractWithUI(false)
-		UI.SetCursorVisible(false)
+		hide_vote_ui()
+		hide_unvote_ui()
 	end
 end
 
 local function vote_button_clicked()
 	if(current_unique_key ~= nil) then
 		Events.BroadcastToServer("fesitval.vote", current_unique_key)
+
+		if(not API.DEBUG) then
+			VOTE_BUTTON.isInteractable = false
+			Task.Wait(.5)
+			hide_vote_ui()
+		end
 	end
 end
 
 local function unvote_button_clicked()
 	if(current_unique_key ~= nil) then
 		Events.BroadcastToServer("fesitval.unvote", current_unique_key)
+
+		if(not API.DEBUG) then
+			UNVOTE_BUTTON.isInteractable = false
+			Task.Wait(.5)
+			hide_unvote_ui()
+		end
+	end
+end
+
+local function update_player_votes(player, key)
+	if(key == "votedata") then
+		local data = local_player:GetPrivateNetworkedData("votedata")
+
+		player_votes = data or {}
 	end
 end
 
@@ -71,3 +151,9 @@ end
 
 VOTE_BUTTON.clickedEvent:Connect(vote_button_clicked)
 UNVOTE_BUTTON.clickedEvent:Connect(unvote_button_clicked)
+
+local_player.privateNetworkedDataChangedEvent:Connect(update_player_votes)
+
+for i, key in ipairs(local_player:GetPrivateNetworkedDataKeys()) do
+	update_player_votes(local_player, key)
+ end

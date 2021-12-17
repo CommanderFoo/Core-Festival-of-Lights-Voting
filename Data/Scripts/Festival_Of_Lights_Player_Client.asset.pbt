@@ -21,7 +21,27 @@ Assets {
         }
       }
       Overrides {
-        Name: "cs:UIContainer"
+        Name: "cs:VotePanel"
+        ObjectReference {
+        }
+      }
+      Overrides {
+        Name: "cs:UnvotePanel"
+        ObjectReference {
+        }
+      }
+      Overrides {
+        Name: "cs:VoteEntryImage"
+        ObjectReference {
+        }
+      }
+      Overrides {
+        Name: "cs:VoteEntryTitle"
+        ObjectReference {
+        }
+      }
+      Overrides {
+        Name: "cs:VoteEntryCreator"
         ObjectReference {
         }
       }
@@ -32,6 +52,21 @@ Assets {
       }
       Overrides {
         Name: "cs:UnvoteButton"
+        ObjectReference {
+        }
+      }
+      Overrides {
+        Name: "cs:UnvoteEntryTitle"
+        ObjectReference {
+        }
+      }
+      Overrides {
+        Name: "cs:UnvoteEntryCreator"
+        ObjectReference {
+        }
+      }
+      Overrides {
+        Name: "cs:UnvoteEntryImage"
         ObjectReference {
         }
       }

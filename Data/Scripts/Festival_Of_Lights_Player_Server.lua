@@ -22,7 +22,7 @@ local ENTRIES = ROOT:GetCustomProperty("Entries"):WaitForObject()
 local function send_private_data(player)
 	local saved_data = Storage.GetPlayerData(player)
 
-	player:SetPrivateNetworkedData("votedata", { votes = saved_data.votes or VOTES_PER_PLAYER })
+	player:SetPrivateNetworkedData("votedata", API.create_private_data(saved_data, ENTRIES))
 end
 
 ---@param player Player
@@ -30,26 +30,24 @@ end
 local function set_vote(player, unique_key, amount)
 	local saved_data = Storage.GetPlayerData(player)
 
-	saved_data.votes = saved_data.votes or {}
-
-	if(saved_data.votes[unique_key] == nil) then
-		saved_data.votes[unique_key] = 0
+	if(saved_data[unique_key] == nil) then
+		saved_data[unique_key] = 0
 	end
 
-	local total_votes = API.get_total_votes(saved_data, ENTRIES)
+	local total_votes = API.get_total_player_votes(saved_data, ENTRIES)
 
-	print(unique_key, amount)
 	if(amount == 1) then
---		if(total_votes < VOTES_PER_PLAYER and saved_data.votes[unique_key] == 0) then
-			saved_data.votes[unique_key] = 1
+		if(total_votes < VOTES_PER_PLAYER and saved_data[unique_key] == 0 or API.DEBUG) then
+			saved_data[unique_key] = 1
 			Events.Broadcast("festival.update_votes", unique_key, 1)
---		end
+		end
 	else
-		saved_data.votes[unique_key] = nil
+		saved_data[unique_key] = 0
 		Events.Broadcast("festival.update_votes", unique_key, -1)
 	end
 
 	Storage.SetPlayerData(player, saved_data)
+	send_private_data(player)
 end
 
 ---@param player Player

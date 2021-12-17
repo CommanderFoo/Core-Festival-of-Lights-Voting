@@ -32,6 +32,7 @@ local function refresh_leaderboard(comp)
 	for i, e in ipairs(positions) do
 		local row = rows[i]
 
+		print(i, e.votes, e.unique_key)
 		if(row ~= nil) then
 			row.title.text = e.title
 			row.creator.text = e.creator
@@ -52,11 +53,17 @@ local function update_positions()
 		end
 
 		refresh_leaderboard(function(a, b)
-			return a.votes > b.votes
+			if(a.votes > b.votes) then
+				return true
+			elseif(a.votes == b.votes) then
+				return string.upper(a.title) < string.upper(b.title) 
+			end
+
+			return false
 		end)
 	else
 		refresh_leaderboard(function(a, b)
-			return a.title < b.title
+			return string.upper(a.title) < string.upper(b.title)
 		end)
 	end
 end
