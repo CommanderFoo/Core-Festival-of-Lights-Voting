@@ -77,6 +77,7 @@ end
 local function on_trigger_enter(trigger, other)
 	if(other:IsA("Player") and other == local_player) then
 		local unique_key, title, creator = API.get_entry_info(current_unique_key, children)
+		local total_votes = API.get_total_player_votes(player_votes, ENTRIES)
 
 		if(title ~= nil) then
 			if(player_votes[unique_key] ~= nil and player_votes[unique_key] > 0 and not API.DEBUG) then
@@ -87,8 +88,15 @@ local function on_trigger_enter(trigger, other)
 
 				show_unvote_ui()
 			else
-				VOTE_BUTTON.isInteractable = true
-				UNVOTE_BUTTON.isInteractable = false
+				if(total_votes >= 3) then
+					VOTE_BUTTON.isInteractable = false
+					VOTE_BUTTON:FindChildByType("UIText").text = "Out of Votes"
+				else
+					VOTE_BUTTON:FindChildByType("UIText").text = "Place Vote"
+					VOTE_BUTTON.isInteractable = true
+					UNVOTE_BUTTON.isInteractable = false
+				end
+
 				VOTE_ENTRY_TITLE.text = title
 				VOTE_ENTRY_CREATOR.text = creator
 

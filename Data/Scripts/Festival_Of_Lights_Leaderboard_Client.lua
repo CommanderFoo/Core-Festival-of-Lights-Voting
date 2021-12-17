@@ -32,9 +32,8 @@ local function refresh_leaderboard(comp)
 	for i, e in ipairs(positions) do
 		local row = rows[i]
 
-		print(i, e.votes, e.unique_key)
 		if(row ~= nil) then
-			row.title.text = e.title
+			row.title.text = e.title .. " (" .. tostring(e.votes) .. ")"
 			row.creator.text = e.creator
 		end
 	end

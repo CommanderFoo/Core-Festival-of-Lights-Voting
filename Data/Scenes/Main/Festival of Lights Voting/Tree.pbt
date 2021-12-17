@@ -2390,7 +2390,6 @@ Objects {
     UseParentWidth: true
     UseParentHeight: true
     Panel {
-      IsClipping: true
       Opacity: 1
     }
     AnchorLayout {
@@ -7772,6 +7771,7 @@ Objects {
   }
   ParentId: 17759988254401689981
   ChildIds: 8479490957443752938
+  ChildIds: 12305596203731529985
   ChildIds: 12456894417895285952
   ChildIds: 11232818842108113316
   Collidable_v2 {
@@ -7965,6 +7965,231 @@ Objects {
         A: 1
       }
       OutlineSize: 4
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middleleft"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middleleft"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 12305596203731529985
+  Name: "Star"
+  Transform {
+    Location {
+      X: -1.33024405e-05
+      Y: 14.5049181
+      Z: -149.096573
+    }
+    Rotation {
+      Pitch: 6.83018879e-06
+      Yaw: 89.9999542
+      Roll: -3.19682067e-06
+    }
+    Scale {
+      X: 0.871788681
+      Y: 0.821793795
+      Z: 0.913031936
+    }
+  }
+  ParentId: 3198805694734637230
+  ChildIds: 8533400349330518613
+  ChildIds: 16980052085782931558
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:forceon"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 45
+    Height: 45
+    UIX: -8.80519676
+    UIY: -18.0377712
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    Image {
+      Brush {
+        Id: 9791324209359037693
+      }
+      Color {
+        A: 1
+      }
+      TeamSettings {
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      ScreenshotIndex: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middleleft"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middleleft"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 16980052085782931558
+  Name: "Star"
+  Transform {
+    Location {
+      X: -1.33024405e-05
+      Y: 14.5049067
+      Z: -149.096573
+    }
+    Rotation {
+      Pitch: 6.83018879e-06
+      Yaw: 89.9999466
+      Roll: -8.14221954e-13
+    }
+    Scale {
+      X: 0.87178874
+      Y: 0.821793735
+      Z: 0.913031936
+    }
+  }
+  ParentId: 12305596203731529985
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: -4
+    Height: -4
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    AddSizeToParentIfUsingParentSize: true
+    UseParentWidth: true
+    UseParentHeight: true
+    Image {
+      Brush {
+        Id: 9791324209359037693
+      }
+      Color {
+        R: 1
+        G: 1
+        A: 1
+      }
+      TeamSettings {
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      ScreenshotIndex: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middleleft"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middleleft"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 8533400349330518613
+  Name: "Star"
+  Transform {
+    Location {
+      X: -1.33024805e-05
+      Y: 14.5049067
+      Z: -149.096573
+    }
+    Rotation {
+      Pitch: 6.83018879e-06
+      Yaw: 89.9999313
+      Roll: -1.01777744e-12
+    }
+    Scale {
+      X: 0.87178874
+      Y: 0.821793735
+      Z: 0.913031936
+    }
+  }
+  ParentId: 12305596203731529985
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: -4
+    Height: -4
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    AddSizeToParentIfUsingParentSize: true
+    UseParentWidth: true
+    UseParentHeight: true
+    Image {
+      Brush {
+        Id: 9791324209359037693
+      }
+      Color {
+        A: 1
+      }
+      TeamSettings {
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      ScreenshotIndex: 1
     }
     AnchorLayout {
       SelfAnchor {
@@ -9073,6 +9298,7 @@ Objects {
   }
   ParentId: 5303453100606221724
   ChildIds: 13795284332632656404
+  ChildIds: 614664256001251544
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -9108,6 +9334,50 @@ Objects {
         }
       }
     }
+  }
+}
+Objects {
+  Id: 614664256001251544
+  Name: "Festival_Of_Light_Star_Rotator_Client"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 6789577404515619941
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:Star"
+      ObjectReference {
+        SelfId: 6905744706544398086
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Script {
+    ScriptAsset {
+      Id: 12164632399074447967
+    }
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {
@@ -9348,7 +9618,7 @@ Objects {
   ParentId: 7507436063788037499
   ChildIds: 10678564164247709449
   ChildIds: 4147085392624790868
-  ChildIds: 6905744706544398086
+  ChildIds: 409451143358181211
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -9388,6 +9658,61 @@ Objects {
   }
 }
 Objects {
+  Id: 409451143358181211
+  Name: "Star Container"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17250235047500094957
+  ChildIds: 6905744706544398086
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 80
+    Height: 80
+    UIX: -25
+    UIY: -26
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    Panel {
+      Opacity: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:topleft"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:topleft"
+        }
+      }
+    }
+  }
+}
+Objects {
   Id: 6905744706544398086
   Name: "Star"
   Transform {
@@ -9401,7 +9726,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 17250235047500094957
+  ParentId: 409451143358181211
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -9417,13 +9742,13 @@ Objects {
   Control {
     Width: 75
     Height: 75
-    UIX: -25
-    UIY: -25
     RenderTransformPivot {
       Anchor {
         Value: "mc:euianchor:middlecenter"
       }
     }
+    UseParentWidth: true
+    UseParentHeight: true
     Image {
       Brush {
         Id: 9791324209359037693
@@ -9445,12 +9770,12 @@ Objects {
     AnchorLayout {
       SelfAnchor {
         Anchor {
-          Value: "mc:euianchor:topleft"
+          Value: "mc:euianchor:middlecenter"
         }
       }
       TargetAnchor {
         Anchor {
-          Value: "mc:euianchor:topleft"
+          Value: "mc:euianchor:middlecenter"
         }
       }
     }
