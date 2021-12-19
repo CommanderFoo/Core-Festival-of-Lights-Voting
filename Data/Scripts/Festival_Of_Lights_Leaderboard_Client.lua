@@ -1,6 +1,5 @@
 --[[
 	Author: CommanderFoo
-	Version: 1.0
 --]]
 
 ---@type UIPanel

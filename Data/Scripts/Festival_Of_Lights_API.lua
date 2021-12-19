@@ -1,6 +1,5 @@
 --[[
 	Author: CommanderFoo
-	Version: 1.0
 --]]
 
 local API = {}
@@ -58,6 +57,12 @@ API.get_total_player_votes = function(vote_data, entries)
 	return count
 end
 
+---Gets the entry info.
+---@param unique_key string
+---@param entries table
+---@return string
+---@return string
+---@return string
 API.get_entry_info = function(unique_key, entries)
 	for i, e in ipairs(entries) do
 		if(e:GetCustomProperty("UniqueKey") == unique_key) then
@@ -69,6 +74,10 @@ API.get_entry_info = function(unique_key, entries)
 	end
 end
 
+---Creates default private data for the player.
+---@param player_data table
+---@param entries any
+---@return table
 API.create_private_data = function(player_data, entries)
 	local children = entries:GetChildren()
 	local data = {}

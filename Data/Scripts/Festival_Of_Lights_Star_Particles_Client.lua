@@ -1,3 +1,7 @@
+--[[
+	Author: CommanderFoo
+--]]
+
 local ROOT = script.parent
 
 ---@type SimpleCurve

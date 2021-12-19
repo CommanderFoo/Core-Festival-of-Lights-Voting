@@ -1,6 +1,5 @@
 --[[
 	Author: CommanderFoo
-	Version: 1.0
 --]]
 
 local API = require(script:GetCustomProperty("Festival_Of_Lights_API"))

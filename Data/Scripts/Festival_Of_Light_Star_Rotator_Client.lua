@@ -1,3 +1,7 @@
+--[[
+	Author: CommanderFoo
+--]]
+
 ---@type UIImage
 local STAR = script:GetCustomProperty("Star"):WaitForObject()
 

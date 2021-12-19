@@ -1,13 +1,5 @@
 --[[
 	Author: CommanderFoo
-	Version: 1.0
-
-	Fetches the concurrent data that contains all the votes for each item and
-	sets the "Votes" dynamic property on the DataHolder folder so clients keep
-	up to date when votes change.
-
-	We also connect to the concurrent data changec event to also update the clients
-	when new data has been set in the concurrent creator key table.
 --]]
 
 local API = require(script:GetCustomProperty("Festival_Of_Lights_API"))
