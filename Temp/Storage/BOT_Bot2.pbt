@@ -1,14 +1,6 @@
 Entries {
   Key {
-    StringVar: "entry3"
-  }
-  SimpleValue {
-    IntVar: 1
-  }
-}
-Entries {
-  Key {
-    StringVar: "entry7"
+    StringVar: "entry2"
   }
   SimpleValue {
     IntVar: 1

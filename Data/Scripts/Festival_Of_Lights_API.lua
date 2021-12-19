@@ -5,8 +5,6 @@
 
 local API = {}
 
-API.DEBUG = false
-
 ---@param data table
 ---@param entries table<integer, CoreObject>
 ---@return string

@@ -70,6 +70,12 @@ Assets {
         ObjectReference {
         }
       }
+      Overrides {
+        Name: "cs:ButtonParticles"
+        AssetReference {
+          Id: 5840888346458125869
+        }
+      }
     }
   }
   SerializationVersion: 103

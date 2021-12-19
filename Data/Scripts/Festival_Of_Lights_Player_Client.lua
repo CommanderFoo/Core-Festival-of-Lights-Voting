@@ -44,6 +44,9 @@ local UNVOTE_ENTRY_CREATOR = script:GetCustomProperty("UnvoteEntryCreator"):Wait
 ---@type UIImage
 local UNVOTE_ENTRY_IMAGE = script:GetCustomProperty("UnvoteEntryImage"):WaitForObject()
 
+---@type UIPanel
+local BUTTON_PARTICLES = script:GetCustomProperty("ButtonParticles")
+
 local local_player = Game.GetLocalPlayer()
 local current_unique_key = nil
 local children = ENTRIES:GetChildren()
@@ -79,7 +82,7 @@ local function on_trigger_enter(trigger, other)
 		local total_votes = API.get_total_player_votes(player_votes, ENTRIES)
 
 		if(title ~= nil) then
-			if(player_votes[unique_key] ~= nil and player_votes[unique_key] > 0 and not API.DEBUG) then
+			if(player_votes[unique_key] ~= nil and player_votes[unique_key] > 0) then
 				VOTE_BUTTON.isInteractable = false
 				UNVOTE_BUTTON.isInteractable = true
 				UNVOTE_ENTRY_TITLE.text = title
@@ -115,25 +118,31 @@ end
 
 local function vote_button_clicked()
 	if(current_unique_key ~= nil) then
-		Events.BroadcastToServer("fesitval.vote", current_unique_key)
+		local particles = World.SpawnAsset(BUTTON_PARTICLES, { parent = VOTE_BUTTON})
 
-		if(not API.DEBUG) then
-			VOTE_BUTTON.isInteractable = false
-			Task.Wait(.5)
-			hide_vote_ui()
-		end
+		Events.BroadcastToServer("fesitval.vote", current_unique_key)
+		Events.Broadcast("festival.play_sound", "particle_sound")
+		Events.Broadcast("festival.play_effect", "particle_effect")
+
+		VOTE_BUTTON.isInteractable = false
+		Task.Wait(2.5)
+		particles:Destroy()
+		hide_vote_ui()
 	end
 end
 
 local function unvote_button_clicked()
 	if(current_unique_key ~= nil) then
-		Events.BroadcastToServer("fesitval.unvote", current_unique_key)
+		local particles = World.SpawnAsset(BUTTON_PARTICLES, { parent = UNVOTE_BUTTON})
 
-		if(not API.DEBUG) then
-			UNVOTE_BUTTON.isInteractable = false
-			Task.Wait(.5)
-			hide_unvote_ui()
-		end
+		Events.BroadcastToServer("fesitval.unvote", current_unique_key)
+		Events.Broadcast("festival.play_sound", "particle_sound")
+		Events.Broadcast("festival.play_effect", "particle_effect")
+		
+		UNVOTE_BUTTON.isInteractable = false
+		Task.Wait(2.5)
+		particles:Destroy()
+		hide_unvote_ui()
 	end
 end
 

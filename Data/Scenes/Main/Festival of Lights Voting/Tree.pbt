@@ -3369,6 +3369,7 @@ Objects {
   ChildIds: 17312562389272716138
   ChildIds: 1388832190362170707
   ChildIds: 6932353566796040712
+  ChildIds: 8407196494459323092
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -3385,6 +3386,191 @@ Objects {
     IsGroup: true
   }
   IsAdvanced: true
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 8407196494459323092
+  Name: "Audio"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 11334317751810582404
+  ChildIds: 9129499415320985165
+  ChildIds: 1228210208186404682
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:forceoff"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  NetworkContext {
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 1228210208186404682
+  Name: "Vote Button Clicked"
+  Transform {
+    Location {
+      X: -450
+      Y: -300
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 8407196494459323092
+  UnregisteredParameters {
+    Overrides {
+      Name: "bp:Enable Base Rays"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Enable Beam"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Enable Spiral"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Enable Inner Spirals"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Enable Ground Flare"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Enable Ground Hot Spot"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Ground Burst Lines"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Enable Rings"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Enable Outer Particle Swirls"
+      Bool: true
+    }
+    Overrides {
+      Name: "bp:Looping"
+      Bool: false
+    }
+    Overrides {
+      Name: "bp:Color"
+      Color {
+        R: 0.978000045
+        G: 0.931428492
+        A: 1
+      }
+    }
+    Overrides {
+      Name: "bp:Spiral Color"
+      Color {
+        R: 0.994000077
+        G: 0.930888772
+        A: 1
+      }
+    }
+    Overrides {
+      Name: "bp:Ground Element Color"
+      Color {
+        R: 0.978000045
+        G: 0.884857059
+        A: 1
+      }
+    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Blueprint {
+    BlueprintAsset {
+      Id: 17021328802199628537
+    }
+    TeamSettings {
+    }
+    Vfx {
+    }
+  }
+  Relevance {
+    Value: "mc:eproxyrelevance:high"
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 9129499415320985165
+  Name: "Button Click Particle Sound"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 8407196494459323092
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  AudioInstance {
+    AudioAsset {
+      Id: 561194692446806724
+    }
+    Volume: 1
+    Falloff: -1
+    Radius: -1
+  }
   NetworkRelevanceDistance {
     Value: "mc:eproxyrelevance:critical"
   }
@@ -3621,6 +3807,20 @@ Objects {
     }
   }
   ParentId: 1388832190362170707
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:ButtonClickParticleSound"
+      ObjectReference {
+        SelfId: 9129499415320985165
+      }
+    }
+    Overrides {
+      Name: "cs:VoteButtonClicked"
+      ObjectReference {
+        SelfId: 1228210208186404682
+      }
+    }
+  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -4018,6 +4218,8 @@ Objects {
   ParentId: 6789577404515619941
   ChildIds: 7507436063788037499
   ChildIds: 10261433311422631899
+  ChildIds: 8271310010524290304
+  ChildIds: 17250235047500094957
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -4083,146 +4285,6 @@ Objects {
   }
 }
 Objects {
-  Id: 10261433311422631899
-  Name: "Frame"
-  Transform {
-    Location {
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 13795284332632656404
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Control {
-    Width: 30
-    Height: 30
-    RenderTransformPivot {
-      Anchor {
-        Value: "mc:euianchor:middlecenter"
-      }
-    }
-    AddSizeToParentIfUsingParentSize: true
-    UseParentWidth: true
-    UseParentHeight: true
-    Image {
-      Brush {
-        Id: 3730050433964443583
-      }
-      Color {
-        G: 0.194825858
-        B: 0.722
-        A: 1
-      }
-      TeamSettings {
-      }
-      ShadowColor {
-        A: 1
-      }
-      ShadowOffset {
-      }
-      ScreenshotIndex: 1
-    }
-    AnchorLayout {
-      SelfAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-      TargetAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-    }
-  }
-  InstanceHistory {
-    SelfId: 16848533200367407309
-    SubobjectId: 5279070138603010344
-    InstanceId: 16828731236306454015
-    TemplateId: 12676879008036260871
-  }
-  NetworkRelevanceDistance {
-    Value: "mc:eproxyrelevance:critical"
-  }
-}
-Objects {
-  Id: 7507436063788037499
-  Name: "Clipped"
-  Transform {
-    Location {
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 13795284332632656404
-  ChildIds: 6330223208389671548
-  ChildIds: 232938889824184619
-  ChildIds: 2736240725386195547
-  ChildIds: 5295003427619756215
-  ChildIds: 8271310010524290304
-  ChildIds: 17250235047500094957
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Control {
-    Width: 100
-    Height: 100
-    RenderTransformPivot {
-      Anchor {
-        Value: "mc:euianchor:middlecenter"
-      }
-    }
-    UseParentWidth: true
-    UseParentHeight: true
-    Panel {
-      IsClipping: true
-      Opacity: 1
-    }
-    AnchorLayout {
-      SelfAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-      TargetAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-    }
-  }
-}
-Objects {
   Id: 17250235047500094957
   Name: "Image Container"
   Transform {
@@ -4236,7 +4298,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 7507436063788037499
+  ParentId: 13795284332632656404
   ChildIds: 10678564164247709449
   ChildIds: 4147085392624790868
   ChildIds: 409451143358181211
@@ -4628,7 +4690,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 7507436063788037499
+  ParentId: 13795284332632656404
   ChildIds: 1626582347336044735
   ChildIds: 4919391796024669148
   ChildIds: 11191626607267937913
@@ -5582,6 +5644,144 @@ Objects {
   }
 }
 Objects {
+  Id: 10261433311422631899
+  Name: "Frame"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 13795284332632656404
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 30
+    Height: 30
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    AddSizeToParentIfUsingParentSize: true
+    UseParentWidth: true
+    UseParentHeight: true
+    Image {
+      Brush {
+        Id: 3730050433964443583
+      }
+      Color {
+        G: 0.194825858
+        B: 0.722
+        A: 1
+      }
+      TeamSettings {
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      ScreenshotIndex: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+    }
+  }
+  InstanceHistory {
+    SelfId: 16848533200367407309
+    SubobjectId: 5279070138603010344
+    InstanceId: 16828731236306454015
+    TemplateId: 12676879008036260871
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 7507436063788037499
+  Name: "Clipped"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 13795284332632656404
+  ChildIds: 6330223208389671548
+  ChildIds: 232938889824184619
+  ChildIds: 2736240725386195547
+  ChildIds: 5295003427619756215
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 100
+    Height: 100
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    UseParentWidth: true
+    UseParentHeight: true
+    Panel {
+      IsClipping: true
+      Opacity: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+    }
+  }
+}
+Objects {
   Id: 5295003427619756215
   Name: "Top Gradient"
   Transform {
@@ -5970,6 +6170,8 @@ Objects {
   ParentId: 12621154311831985338
   ChildIds: 7213005727793392404
   ChildIds: 16854319885269869582
+  ChildIds: 17763177320537549601
+  ChildIds: 14788273928230427057
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -6035,146 +6237,6 @@ Objects {
   }
 }
 Objects {
-  Id: 16854319885269869582
-  Name: "Frame"
-  Transform {
-    Location {
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 17744444017051401151
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Control {
-    Width: 30
-    Height: 30
-    RenderTransformPivot {
-      Anchor {
-        Value: "mc:euianchor:middlecenter"
-      }
-    }
-    AddSizeToParentIfUsingParentSize: true
-    UseParentWidth: true
-    UseParentHeight: true
-    Image {
-      Brush {
-        Id: 3730050433964443583
-      }
-      Color {
-        G: 0.194825858
-        B: 0.722
-        A: 1
-      }
-      TeamSettings {
-      }
-      ShadowColor {
-        A: 1
-      }
-      ShadowOffset {
-      }
-      ScreenshotIndex: 1
-    }
-    AnchorLayout {
-      SelfAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-      TargetAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-    }
-  }
-  InstanceHistory {
-    SelfId: 16848533200367407309
-    SubobjectId: 5279070138603010344
-    InstanceId: 16828731236306454015
-    TemplateId: 12676879008036260871
-  }
-  NetworkRelevanceDistance {
-    Value: "mc:eproxyrelevance:critical"
-  }
-}
-Objects {
-  Id: 7213005727793392404
-  Name: "Clipped"
-  Transform {
-    Location {
-    }
-    Rotation {
-    }
-    Scale {
-      X: 1
-      Y: 1
-      Z: 1
-    }
-  }
-  ParentId: 17744444017051401151
-  ChildIds: 1121149139520687550
-  ChildIds: 3669277658221041361
-  ChildIds: 13711879337738702149
-  ChildIds: 16206559514212080053
-  ChildIds: 17763177320537549601
-  ChildIds: 14788273928230427057
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Control {
-    Width: 100
-    Height: 100
-    RenderTransformPivot {
-      Anchor {
-        Value: "mc:euianchor:middlecenter"
-      }
-    }
-    UseParentWidth: true
-    UseParentHeight: true
-    Panel {
-      IsClipping: true
-      Opacity: 1
-    }
-    AnchorLayout {
-      SelfAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-      TargetAnchor {
-        Anchor {
-          Value: "mc:euianchor:middlecenter"
-        }
-      }
-    }
-  }
-}
-Objects {
   Id: 14788273928230427057
   Name: "Info Container"
   Transform {
@@ -6188,7 +6250,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 7213005727793392404
+  ParentId: 17744444017051401151
   ChildIds: 14667758488394462244
   ChildIds: 8414306788017070036
   ChildIds: 4851334129748551416
@@ -7155,7 +7217,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 7213005727793392404
+  ParentId: 17744444017051401151
   ChildIds: 2667521186441693325
   ChildIds: 6158749447147987576
   Collidable_v2 {
@@ -7393,6 +7455,144 @@ Objects {
       ShadowOffset {
       }
       ScreenshotIndex: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+    }
+  }
+}
+Objects {
+  Id: 16854319885269869582
+  Name: "Frame"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17744444017051401151
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 30
+    Height: 30
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    AddSizeToParentIfUsingParentSize: true
+    UseParentWidth: true
+    UseParentHeight: true
+    Image {
+      Brush {
+        Id: 3730050433964443583
+      }
+      Color {
+        G: 0.194825858
+        B: 0.722
+        A: 1
+      }
+      TeamSettings {
+      }
+      ShadowColor {
+        A: 1
+      }
+      ShadowOffset {
+      }
+      ScreenshotIndex: 1
+    }
+    AnchorLayout {
+      SelfAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+      TargetAnchor {
+        Anchor {
+          Value: "mc:euianchor:middlecenter"
+        }
+      }
+    }
+  }
+  InstanceHistory {
+    SelfId: 16848533200367407309
+    SubobjectId: 5279070138603010344
+    InstanceId: 16828731236306454015
+    TemplateId: 12676879008036260871
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 7213005727793392404
+  Name: "Clipped"
+  Transform {
+    Location {
+    }
+    Rotation {
+    }
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 17744444017051401151
+  ChildIds: 1121149139520687550
+  ChildIds: 3669277658221041361
+  ChildIds: 13711879337738702149
+  ChildIds: 16206559514212080053
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Control {
+    Width: 100
+    Height: 100
+    RenderTransformPivot {
+      Anchor {
+        Value: "mc:euianchor:middlecenter"
+      }
+    }
+    UseParentWidth: true
+    UseParentHeight: true
+    Panel {
+      IsClipping: true
+      Opacity: 1
     }
     AnchorLayout {
       SelfAnchor {

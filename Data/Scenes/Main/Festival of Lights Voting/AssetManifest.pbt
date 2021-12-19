@@ -8,6 +8,15 @@ Assets {
   }
 }
 Assets {
+  Id: 17021328802199628537
+  Name: "Level Up VFX"
+  PlatformAssetType: 8
+  PrimaryAsset {
+    AssetType: "VfxBlueprintAssetRef"
+    AssetId: "fxbp_Level_Up"
+  }
+}
+Assets {
   Id: 15357133247247472435
   Name: "UI Gradient Circular 001"
   PlatformAssetType: 9
@@ -122,5 +131,14 @@ Assets {
   PrimaryAsset {
     AssetType: "PlatformBrushAssetRef"
     AssetId: "Icon_Military_Ability_Teal_005"
+  }
+}
+Assets {
+  Id: 561194692446806724
+  Name: "Magic Wand Sparkle 01 SFX"
+  PlatformAssetType: 7
+  PrimaryAsset {
+    AssetType: "AudioAssetRef"
+    AssetId: "sfx_magic_wand_sparkle_01_Cue_ref"
   }
 }
