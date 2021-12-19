@@ -16,6 +16,7 @@ local positions = {}
 local rows = {}
 local children = ENTRIES:GetChildren()
 local table_rows = TABLE:GetChildren()
+local player_votes = {}
 
 local function update_entry_votes(unique_key, votes)
 	for i, e in ipairs(positions) do
@@ -33,8 +34,14 @@ local function refresh_leaderboard(comp)
 		local row = rows[i]
 
 		if(row ~= nil) then
-			row.title.text = e.title .. " (" .. tostring(e.votes) .. ")"
+			row.title.text = e.title .. "  (DEBUG VOTES: " .. tostring(e.votes) .. ")"
 			row.creator.text = e.creator
+
+			if(player_votes[e.unique_key] ~= nil and player_votes[e.unique_key] > 0) then
+				row.star.visibility = Visibility.FORCE_ON
+			else
+				row.star.visibility = Visibility.FORCE_OFF
+			end
 		end
 	end
 end
@@ -55,7 +62,7 @@ local function update_positions()
 			if(a.votes > b.votes) then
 				return true
 			elseif(a.votes == b.votes) then
-				return string.upper(a.title) < string.upper(b.title) 
+				return string.upper(a.title) < string.upper(b.title)
 			end
 
 			return false
@@ -73,12 +80,17 @@ local function data_changed(obj, prop)
 	end
 end
 
+local function update_player_votes(data)
+	player_votes = data
+end
+
 -- Fetch rows so they are catched for later use.
 for r, row in ipairs(table_rows) do
 	rows[r] = {
 
 		title = row:FindDescendantByName("Title"),
-		creator = row:FindDescendantByName("Creator")
+		creator = row:FindDescendantByName("Creator"),
+		star = row:FindDescendantByName("Star Panel"),
 
 	}
 end
@@ -98,3 +110,5 @@ end
 DATA_HOLDER.customPropertyChangedEvent:Connect(data_changed)
 
 data_changed(DATA_HOLDER, "Votes")
+
+Events.Connect("festival.update_player_votes", update_player_votes)

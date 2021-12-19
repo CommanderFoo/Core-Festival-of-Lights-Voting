@@ -89,15 +89,6 @@ Assets {
   }
 }
 Assets {
-  Id: 6552159650827520712
-  Name: "Abstract Background 06"
-  PlatformAssetType: 9
-  PrimaryAsset {
-    AssetType: "PlatformBrushAssetRef"
-    AssetId: "Core_UI_AbstractPack_Background_007"
-  }
-}
-Assets {
   Id: 6471188093884568140
   Name: "Abstract Frame 10"
   PlatformAssetType: 9

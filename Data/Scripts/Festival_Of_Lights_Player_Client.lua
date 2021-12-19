@@ -5,7 +5,6 @@
 
 local API = require(script:GetCustomProperty("Festival_Of_Lights_API"))
 
----The root folder contains all the properties to adjust the system.
 ---@type Folder
 local ROOT = script:GetCustomProperty("Root"):WaitForObject()
 
@@ -143,6 +142,8 @@ local function update_player_votes(player, key)
 		local data = local_player:GetPrivateNetworkedData("votedata")
 
 		player_votes = data or {}
+
+		Events.Broadcast("festival.update_player_votes", player_votes)
 	end
 end
 
