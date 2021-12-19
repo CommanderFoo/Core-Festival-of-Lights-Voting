@@ -7,7 +7,7 @@ Assets {
       RootId: 3103656408335715453
       Objects {
         Id: 3103656408335715453
-        Name: "Row"
+        Name: "Festival of Lights - Leaderboard Row"
         Transform {
           Scale {
             X: 1.66666651
@@ -617,8 +617,7 @@ Assets {
         Control {
           Width: 60
           Height: 60
-          UIX: -28
-          UIY: -5
+          UIX: -25
           RenderTransformPivot {
             Anchor {
               Value: "mc:euianchor:middlecenter"
@@ -662,6 +661,7 @@ Assets {
           }
         }
         ParentId: 11103864494502873557
+        ChildIds: 6889497835071893718
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
         }
@@ -682,6 +682,80 @@ Assets {
               Value: "mc:euianchor:middlecenter"
             }
           }
+          UseParentWidth: true
+          UseParentHeight: true
+          Image {
+            Brush {
+              Id: 9791324209359037693
+            }
+            Color {
+              A: 1
+            }
+            TeamSettings {
+            }
+            ShadowColor {
+              A: 1
+            }
+            ShadowOffset {
+            }
+            ScreenshotIndex: 1
+          }
+          AnchorLayout {
+            SelfAnchor {
+              Anchor {
+                Value: "mc:euianchor:middlecenter"
+              }
+            }
+            TargetAnchor {
+              Anchor {
+                Value: "mc:euianchor:middlecenter"
+              }
+            }
+          }
+        }
+      }
+      Objects {
+        Id: 6889497835071893718
+        Name: "Star"
+        Transform {
+          Location {
+            X: -1.4965246e-05
+            Y: 14.5048943
+            Z: -149.096573
+          }
+          Rotation {
+            Pitch: 1.36603776e-05
+            Yaw: 89.999939
+            Roll: -1.83199948e-11
+          }
+          Scale {
+            X: 0.87178874
+            Y: 0.821793616
+            Z: 0.913032
+          }
+        }
+        ParentId: 3949379108503756134
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Control {
+          Width: -14
+          Height: -14
+          RenderTransformPivot {
+            Anchor {
+              Value: "mc:euianchor:middlecenter"
+            }
+          }
+          AddSizeToParentIfUsingParentSize: true
           UseParentWidth: true
           UseParentHeight: true
           Image {

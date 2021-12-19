@@ -1,6 +1,6 @@
 Entries {
   Key {
-    StringVar: "entry3"
+    StringVar: "entry7"
   }
   SimpleValue {
     IntVar: 0
@@ -8,7 +8,7 @@ Entries {
 }
 Entries {
   Key {
-    StringVar: "entry7"
+    StringVar: "entry3"
   }
   SimpleValue {
     IntVar: 0
@@ -24,6 +24,14 @@ Entries {
 }
 Entries {
   Key {
+    StringVar: "entry4"
+  }
+  SimpleValue {
+    IntVar: 0
+  }
+}
+Entries {
+  Key {
     StringVar: "entry5"
   }
   SimpleValue {
@@ -32,7 +40,7 @@ Entries {
 }
 Entries {
   Key {
-    StringVar: "entry4"
+    StringVar: "entry8"
   }
   SimpleValue {
     IntVar: 0

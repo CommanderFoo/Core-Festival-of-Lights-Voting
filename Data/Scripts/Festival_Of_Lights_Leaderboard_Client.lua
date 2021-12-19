@@ -17,6 +17,7 @@ local rows = {}
 local children = ENTRIES:GetChildren()
 local table_rows = TABLE:GetChildren()
 local player_votes = {}
+local stars = {}
 
 local function update_entry_votes(unique_key, votes)
 	for i, e in ipairs(positions) do
@@ -39,8 +40,14 @@ local function refresh_leaderboard(comp)
 
 			if(player_votes[e.unique_key] ~= nil and player_votes[e.unique_key] > 0) then
 				row.star.visibility = Visibility.FORCE_ON
+				stars[e.unique_key] = row.star:GetChildren()[1]
 			else
 				row.star.visibility = Visibility.FORCE_OFF
+
+				if(stars[e.unique_key] ~= nil) then
+					row.star:GetChildren()[1].rotationAngle = 0
+					stars[e.unique_key] = nil
+				end
 			end
 		end
 	end
@@ -82,6 +89,12 @@ end
 
 local function update_player_votes(data)
 	player_votes = data
+end
+
+function Tick(dt)
+	for i, s in pairs(stars) do
+		s.rotationAngle = s.rotationAngle + (dt * 20)
+	end
 end
 
 -- Fetch rows so they are catched for later use.
