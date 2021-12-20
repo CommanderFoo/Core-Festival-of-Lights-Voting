@@ -4,6 +4,8 @@
 
 local API = {}
 
+---Turns the data table into a string that will be used
+---with a dynamic property.
 ---@param data table
 ---@param entries table<integer, CoreObject>
 ---@return string
@@ -22,6 +24,7 @@ API.get_data_as_string = function(data, entries)
 	return table.concat(str, "@")
 end
 
+---Updates the table data that will be used for the concurrent callback.
 ---@param data table
 ---@param delta_table table<string, integer>
 ---@param entries table<integer, CoreObject>
@@ -39,6 +42,7 @@ API.update_data_table = function(data, delta_table, entries)
 	return new_data
 end
 
+---Gets the total votes for a player.
 ---@param vote_data table<string, integer>
 ---@param entries table<integer, CoreObject>
 ---@return integer
@@ -76,7 +80,7 @@ end
 
 ---Creates default private data for the player.
 ---@param player_data table
----@param entries any
+---@param entries Folder
 ---@return table
 API.create_private_data = function(player_data, entries)
 	local children = entries:GetChildren()

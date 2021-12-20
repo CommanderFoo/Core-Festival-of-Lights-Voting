@@ -15,7 +15,7 @@ Objects {
     }
   }
   ChildIds: 13979002585129379405
-  ChildIds: 16459081430167617620
+  ChildIds: 10381515714974398531
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -34,13 +34,9 @@ Objects {
   }
 }
 Objects {
-  Id: 16459081430167617620
+  Id: 10381515714974398531
   Name: "Festival of Lights Voting"
   Transform {
-    Location {
-    }
-    Rotation {
-    }
     Scale {
       X: 1
       Y: 1
@@ -48,53 +44,29 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  UnregisteredParameters {
-    Overrides {
-      Name: "cs:FestivalOfLightsKey"
-      NetReference {
-        Key: "600982ad36f946c692dfb8e31999ade6"
-        Type {
-          Value: "mc:enetreferencetype:concurrentpersistence"
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 16232484991937547742
+      value {
+        Overrides {
+          Name: "Name"
+          String: "Festival of Lights Voting"
+        }
+        Overrides {
+          Name: "Position"
+          Vector {
+          }
+        }
+        Overrides {
+          Name: "Rotation"
+          Rotator {
+          }
         }
       }
     }
-    Overrides {
-      Name: "cs:VotesPerPlayer"
-      Int: 3000
+    TemplateAsset {
+      Id: 1748792675525826622
     }
-    Overrides {
-      Name: "cs:CanUndoVote"
-      Bool: true
-    }
-    Overrides {
-      Name: "cs:Entries"
-      ObjectReference {
-        SelfId: 14484709370116291961
-      }
-    }
-    Overrides {
-      Name: "cs:FestivalOfLightsKey:tooltip"
-      String: "The concurrent storage creator key that will be used to save the votes too."
-    }
-  }
-  Collidable_v2 {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  Visible_v2 {
-    Value: "mc:evisibilitysetting:inheritfromparent"
-  }
-  CameraCollidable {
-    Value: "mc:ecollisionsetting:inheritfromparent"
-  }
-  EditorIndicatorVisibility {
-    Value: "mc:eindicatorvisibility:visiblewhenselected"
-  }
-  Folder {
-    IsFilePartition: true
-    FilePartitionName: "Festival of Lights Voting"
-  }
-  NetworkRelevanceDistance {
-    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {

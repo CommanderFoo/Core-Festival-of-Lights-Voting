@@ -1,6 +1,6 @@
 Assets {
-  Id: 5116410408928929228
-  Name: "Festival_Of_Lights_Star_Particles_Client"
+  Id: 15045482851454302774
+  Name: "Festival_of_Lights_README"
   PlatformAssetType: 3
   TextAsset {
     CustomParameters {

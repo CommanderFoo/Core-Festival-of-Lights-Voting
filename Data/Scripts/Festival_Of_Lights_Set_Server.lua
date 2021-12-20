@@ -24,10 +24,20 @@ local delta_votes = {}
 local has_delta = false
 local wait_time = 5
 
+---The callback for concurrent storage. This updates the
+---vote table with the delta_votes (votes since last update).
+---@param data table
+---@return table
 local function update_concurrent_storage(data)
 	return API.update_data_table(data, delta_votes, ENTRIES)
 end
 
+---Updates the delta_votes table when a vote comes in. This
+---is done because of the time it can take to set concurrent
+---data. So we track the amount of votes so they are set in
+---batches.
+---@param unique_key string
+---@param amount integer Can be 1 or 0. 0 removes the vote.
 local function update_votes(unique_key, amount)
 	amount = amount or 1
 
@@ -39,6 +49,9 @@ local function update_votes(unique_key, amount)
 	has_delta = true
 end
 
+---Handles setting concurrent storage every X seconds based on
+---wait_time. Only update if there is delta votes and no
+--- pending concurrent call.
 function Tick()
 	Task.Wait(wait_time)
 

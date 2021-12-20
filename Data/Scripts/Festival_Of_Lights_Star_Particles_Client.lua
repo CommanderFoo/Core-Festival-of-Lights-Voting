@@ -1,5 +1,9 @@
 --[[
 	Author: CommanderFoo
+	
+	A hacky 2D paricle system wrote very quickly.
+	It is used for the buttons when the player clicks to
+	vote and unvote.
 --]]
 
 local ROOT = script.parent
@@ -35,10 +39,11 @@ for i = 1, 30 do
 		fade_in_speed = 1.8,
 		fade_out_speed = 2.5,
 		rotation_speed = math.random(5, 50)
+		
 
 	}
 
-	particle.image.width = math.floor(math.random(40, 80))
+	particle.image.width = math.floor(math.random(10, 40))
 	particle.image.height = particle.image.width
 	particle.image:SetColor(COLORS[2])
 	particle.color = particle.image:GetColor()

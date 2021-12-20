@@ -46,35 +46,57 @@ local UNVOTE_ENTRY_IMAGE = script:GetCustomProperty("UnvoteEntryImage"):WaitForO
 ---@type UIPanel
 local BUTTON_PARTICLES = script:GetCustomProperty("ButtonParticles")
 
+---@type integer
+local VOTES_PER_PLAYER = ROOT:GetCustomProperty("VotesPerPlayer")
+
+---@type boolean
+local CAN_UNDO_VOTE = ROOT:GetCustomProperty("CanUndoVote")
+
 local local_player = Game.GetLocalPlayer()
 local current_unique_key = nil
 local children = ENTRIES:GetChildren()
 local player_votes = {}
 
+---Shows the voting UI for the player when they
+---are inside the trigger.
 local function show_vote_ui()
 	VOTE_PANEL.visibility = Visibility.FORCE_ON
 	UI.SetCanCursorInteractWithUI(true)
 	UI.SetCursorVisible(true)
 end
 
+---Hides the voting UI when leaving the trigger or
+---after making a vote.
 local function hide_vote_ui()
 	VOTE_PANEL.visibility = Visibility.FORCE_OFF
 	UI.SetCanCursorInteractWithUI(false)
 	UI.SetCursorVisible(false)
 end
 
+---Shows the unvote UI when inside the trigger and 
+---if the player has voted on the entry.
 local function show_unvote_ui()
 	UNVOTE_PANEL.visibility = Visibility.FORCE_ON
 	UI.SetCanCursorInteractWithUI(true)
 	UI.SetCursorVisible(true)
+
+	if(not CAN_UNDO_VOTE) then
+		UNVOTE_BUTTON.visibility = Visibility.FORCE_OFF
+	end
 end
 
+---Hides the unvote UI when leaving the trigger or
+---after unvoting for an entry.
 local function hide_unvote_ui()
 	UNVOTE_PANEL.visibility = Visibility.FORCE_OFF
 	UI.SetCanCursorInteractWithUI(false)
 	UI.SetCursorVisible(false)
 end
 
+---When the player enters the trigger, display the correct
+---UI based on if they have voted for the entry or not.
+---@param trigger Trigger
+---@param other Object
 local function on_trigger_enter(trigger, other)
 	if(other:IsA("Player") and other == local_player) then
 		local unique_key, title, creator = API.get_entry_info(current_unique_key, children)
@@ -89,7 +111,7 @@ local function on_trigger_enter(trigger, other)
 
 				show_unvote_ui()
 			else
-				if(total_votes >= 3) then
+				if(total_votes >= VOTES_PER_PLAYER) then
 					VOTE_BUTTON.isInteractable = false
 					VOTE_BUTTON:FindChildByType("UIText").text = "Out of Votes"
 				else
@@ -107,6 +129,10 @@ local function on_trigger_enter(trigger, other)
 	end
 end
 
+---When the player leaves the trigger, clear the key and
+---hide both UI's as we don't track which one is open.
+---@param trigger Trigger
+---@param other Object
 local function on_trigger_exit(trigger, other)
 	if(other:IsA("Player") and other == local_player) then
 		current_unique_key = nil
@@ -115,6 +141,9 @@ local function on_trigger_exit(trigger, other)
 	end
 end
 
+---When the vote button is clicked, spawn some particles and
+---broadcast to the server to record the vote. The UI is closed
+---automatically after 2.5 seconds.
 local function vote_button_clicked()
 	if(current_unique_key ~= nil) then
 		local particles = World.SpawnAsset(BUTTON_PARTICLES, { parent = VOTE_BUTTON})
@@ -130,6 +159,9 @@ local function vote_button_clicked()
 	end
 end
 
+---When the unvote button is clicked, spawn some particles and
+---broadcast to the server to undo the vote. The UI is closed
+---automatically after 2.5 seconds.
 local function unvote_button_clicked()
 	if(current_unique_key ~= nil) then
 		local particles = World.SpawnAsset(BUTTON_PARTICLES, { parent = UNVOTE_BUTTON})
@@ -145,6 +177,10 @@ local function unvote_button_clicked()
 	end
 end
 
+---Updates the players_votes table based on the players private
+---data that is sent to them when they join and after each vote.
+---@param player Player
+---@param key string
 local function update_player_votes(player, key)
 	if(key == "votedata") then
 		local data = local_player:GetPrivateNetworkedData("votedata")

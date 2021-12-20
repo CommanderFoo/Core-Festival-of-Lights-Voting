@@ -4,5 +4,13 @@ Assets {
   PlatformAssetType: 30
   SerializationVersion: 103
   VirtualFolderSetAsset {
+    Folders {
+      VirtualFolderPath: "Festival of Lights"
+      PlatformAssetType: 3
+    }
+    Folders {
+      VirtualFolderPath: "Festival of Lights"
+      PlatformAssetType: 5
+    }
   }
 }

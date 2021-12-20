@@ -7,7 +7,7 @@ Assets {
       RootId: 3664646720626100634
       Objects {
         Id: 3664646720626100634
-        Name: "Button Star Particles"
+        Name: "Festival of Lights - Button Star Particles"
         Transform {
           Scale {
             X: 1
@@ -40,6 +40,18 @@ Assets {
                 TangentMode {
                   Value: "mc:erichcurvetangentmode:rctm_user"
                 }
+              }
+              Keys {
+                Interpolation {
+                  Value: "mc:erichcurveinterpmode:rcim_cubic"
+                }
+                TangentMode {
+                  Value: "mc:erichcurvetangentmode:rctm_user"
+                }
+                Time: 0.342495084
+                Value: 0.531894743
+                ArriveTangent: 2.30988503
+                LeaveTangent: 2.30988503
               }
               Keys {
                 Interpolation {
@@ -159,4 +171,5 @@ Assets {
     }
   }
   SerializationVersion: 103
+  VirtualFolderPath: "Festival of Lights"
 }

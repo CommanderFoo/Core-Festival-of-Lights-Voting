@@ -17,6 +17,7 @@ local CREATOR_KEY = ROOT:GetCustomProperty("FestivalOfLightsKey")
 ---@type Folder
 local DATA_HOLDER = script:GetCustomProperty("DataHolder"):WaitForObject()
 
+---Folder of all the entries that will be on the leaderboard.
 ---@type Folder
 local ENTRIES = ROOT:GetCustomProperty("Entries"):WaitForObject()
 

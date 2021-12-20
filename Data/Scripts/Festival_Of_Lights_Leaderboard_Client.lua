@@ -18,6 +18,9 @@ local table_rows = TABLE:GetChildren()
 local player_votes = {}
 local stars = {}
 
+---Updates the total votes for an entry on the leaderboard.
+---@param unique_key string
+---@param votes integer
 local function update_entry_votes(unique_key, votes)
 	for i, e in ipairs(positions) do
 		if(e.unique_key == unique_key) then
@@ -27,6 +30,8 @@ local function update_entry_votes(unique_key, votes)
 	end
 end
 
+---Refreshes the leaderboard.
+---@param comp function Sorting function.
 local function refresh_leaderboard(comp)
 	table.sort(positions, comp)
 
@@ -52,6 +57,7 @@ local function refresh_leaderboard(comp)
 	end
 end
 
+---Updates the positions in the leaderboard.
 local function update_positions()
 	local data = DATA_HOLDER:GetCustomProperty("Votes")
 
@@ -80,16 +86,25 @@ local function update_positions()
 	end
 end
 
+---Updates the positions when the players private networked data
+---has changed.
+---@param obj Folder
+---@param prop string
 local function data_changed(obj, prop)
 	if(prop == "Votes") then
 		update_positions()
 	end
 end
 
+---Updates the players vote table, this is used
+---to keep track locally to display correct UI.
+---@param data table
 local function update_player_votes(data)
 	player_votes = data
 end
 
+---For the unvote UI, rotate the star
+---@param dt number
 function Tick(dt)
 	for i, s in pairs(stars) do
 		s.rotationAngle = s.rotationAngle + (dt * 20)
