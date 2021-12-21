@@ -39,7 +39,7 @@ local function refresh_leaderboard(comp)
 		local row = rows[i]
 
 		if(row ~= nil) then
-			row.title.text = e.title .. "  (DEBUG VOTES: " .. tostring(e.votes) .. ")"
+			row.title.text = e.title --.. "  (DEBUG VOTES: " .. tostring(e.votes) .. ")"
 			row.creator.text = e.creator
 
 			if(player_votes[e.unique_key] ~= nil and player_votes[e.unique_key] > 0) then
