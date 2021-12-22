@@ -107,6 +107,13 @@ local function on_trigger_enter(trigger, other)
 				VOTE_BUTTON.isInteractable = false
 				UNVOTE_BUTTON.isInteractable = true
 
+				UNVOTE_ENTRY_TITLE.text = title
+				UNVOTE_ENTRY_CREATOR.text = creator
+	
+				if(screenshot ~= nil and screenshot_index > 0) then
+					UNVOTE_ENTRY_IMAGE:SetGameScreenshot(screenshot, screenshot_index)
+				end
+
 				show_unvote_ui()
 			else
 				if(total_votes >= VOTES_PER_PLAYER) then
@@ -120,15 +127,12 @@ local function on_trigger_enter(trigger, other)
 
 				VOTE_ENTRY_TITLE.text = title
 				VOTE_ENTRY_CREATOR.text = creator
+	
+				if(screenshot ~= nil and screenshot_index > 0) then
+					VOTE_ENTRY_IMAGE:SetGameScreenshot(screenshot, screenshot_index)
+				end
 
 				show_vote_ui()
-			end
-
-			UNVOTE_ENTRY_TITLE.text = title
-			UNVOTE_ENTRY_CREATOR.text = creator
-
-			if(screenshot ~= nil and screenshot_index > 0) then
-				VOTE_ENTRY_IMAGE:SetGameScreenshot(screenshot, screenshot_index)
 			end
 		end
 	end
