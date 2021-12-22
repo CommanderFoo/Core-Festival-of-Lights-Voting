@@ -67,13 +67,17 @@ end
 ---@return string
 ---@return string
 ---@return string
+---@return string
+---@return integer
 API.get_entry_info = function(unique_key, entries)
 	for i, e in ipairs(entries) do
 		if(e:GetCustomProperty("UniqueKey") == unique_key) then
 			local title = e:GetCustomProperty("LeaderboardTitle")
 			local creator = e:GetCustomProperty("CreatorName")
+			local screenshot = e:GetCustomProperty("ScreenshotImage")
+			local screenshot_index = e:GetCustomProperty("ScreenshotIndex")
 
-			return unique_key, title, creator
+			return unique_key, title, creator, screenshot, screenshot_index
 		end
 	end
 end

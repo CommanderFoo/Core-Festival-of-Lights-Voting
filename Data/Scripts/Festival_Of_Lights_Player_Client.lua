@@ -99,15 +99,13 @@ end
 ---@param other Object
 local function on_trigger_enter(trigger, other)
 	if(other:IsA("Player") and other == local_player) then
-		local unique_key, title, creator = API.get_entry_info(current_unique_key, children)
+		local unique_key, title, creator, screenshot, screenshot_index = API.get_entry_info(current_unique_key, children)
 		local total_votes = API.get_total_player_votes(player_votes, ENTRIES)
 
 		if(title ~= nil) then
 			if(player_votes[unique_key] ~= nil and player_votes[unique_key] > 0) then
 				VOTE_BUTTON.isInteractable = false
 				UNVOTE_BUTTON.isInteractable = true
-				UNVOTE_ENTRY_TITLE.text = title
-				UNVOTE_ENTRY_CREATOR.text = creator
 
 				show_unvote_ui()
 			else
@@ -124,6 +122,13 @@ local function on_trigger_enter(trigger, other)
 				VOTE_ENTRY_CREATOR.text = creator
 
 				show_vote_ui()
+			end
+
+			UNVOTE_ENTRY_TITLE.text = title
+			UNVOTE_ENTRY_CREATOR.text = creator
+
+			if(screenshot ~= nil and screenshot_index > 0) then
+				VOTE_ENTRY_IMAGE:SetGameScreenshot(screenshot, screenshot_index)
 			end
 		end
 	end

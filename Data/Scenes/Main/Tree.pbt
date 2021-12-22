@@ -15,7 +15,7 @@ Objects {
     }
   }
   ChildIds: 13979002585129379405
-  ChildIds: 10381515714974398531
+  ChildIds: 16459081430167617620
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -34,9 +34,13 @@ Objects {
   }
 }
 Objects {
-  Id: 10381515714974398531
+  Id: 16459081430167617620
   Name: "Festival of Lights Voting"
   Transform {
+    Location {
+    }
+    Rotation {
+    }
     Scale {
       X: 1
       Y: 1
@@ -44,149 +48,60 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
-  TemplateInstance {
-    ParameterOverrideMap {
-      key: 663380218773253068
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: -100
-          }
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:FestivalOfLightsKey"
+      NetReference {
+        Key: "600982ad36f946c692dfb8e31999ade6"
+        Type {
+          Value: "mc:enetreferencetype:concurrentpersistence"
         }
       }
     }
-    ParameterOverrideMap {
-      key: 4705551201337473410
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: -600
-          }
-        }
+    Overrides {
+      Name: "cs:VotesPerPlayer"
+      Int: 3
+    }
+    Overrides {
+      Name: "cs:CanUndoVote"
+      Bool: true
+    }
+    Overrides {
+      Name: "cs:Entries"
+      ObjectReference {
+        SelfId: 14484709370116291961
       }
     }
-    ParameterOverrideMap {
-      key: 5539444661759771911
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: 950
-          }
-        }
-      }
+    Overrides {
+      Name: "cs:FestivalOfLightsKey:tooltip"
+      String: "The concurrent storage creator key that will be used to save the votes too."
     }
-    ParameterOverrideMap {
-      key: 6254679007149865129
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: 400
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 9502239131666017442
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: -2100
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 9506840500496695844
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: -1100
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 14689460002396813025
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: 2600
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 14804514286849706237
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: 2050
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 15750166744624481738
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: 1500
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 16232484991937547742
-      value {
-        Overrides {
-          Name: "Name"
-          String: "Festival of Lights Voting"
-        }
-        Overrides {
-          Name: "Position"
-          Vector {
-          }
-        }
-        Overrides {
-          Name: "Rotation"
-          Rotator {
-          }
-        }
-      }
-    }
-    ParameterOverrideMap {
-      key: 17662008828488262593
-      value {
-        Overrides {
-          Name: "Position"
-          Vector {
-            X: -814.132324
-            Y: -1600
-          }
-        }
-      }
-    }
-    TemplateAsset {
-      Id: 1748792675525826622
-    }
+  }
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "Festival of Lights Voting"
+  }
+  InstanceHistory {
+    SelfId: 16459081430167617620
+    SubobjectId: 16232484991937547742
+    InstanceId: 10381515714974398531
+    TemplateId: 1748792675525826622
+    WasRoot: true
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
   }
 }
 Objects {
