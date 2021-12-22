@@ -101,6 +101,8 @@ end
 ---@param data table
 local function update_player_votes(data)
 	player_votes = data
+
+	update_positions()
 end
 
 ---For the unvote UI, rotate the star
