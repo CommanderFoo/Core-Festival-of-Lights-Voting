@@ -78,6 +78,6 @@ Assets {
       }
     }
   }
-  SerializationVersion: 103
+  SerializationVersion: 107
   VirtualFolderPath: "Festival of Lights"
 }

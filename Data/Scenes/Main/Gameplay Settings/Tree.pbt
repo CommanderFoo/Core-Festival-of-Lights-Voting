@@ -346,6 +346,7 @@ Objects {
         VoiceChatEntryVerticalFlow {
           Value: "mc:ecoreverticalflow:toptobottom"
         }
+        IsVoiceChatWidgetVisible: true
       }
       PlayerInteractDistance: 500
       PlayerInteractAngleDeg: 50
@@ -354,6 +355,7 @@ Objects {
       }
       EnableConcurrentPlayerStorage: true
       EnableConcurrentCreatorStorage: true
+      EnableNetworkedEventsQueuing: true
     }
   }
   NetworkRelevanceDistance {

@@ -2,7 +2,7 @@ Assets {
   Id: 7668498930497737926
   Name: "Festival of Lights Material - Glow Opaque"
   PlatformAssetType: 13
-  SerializationVersion: 103
+  SerializationVersion: 107
   CustomMaterialAsset {
     BaseMaterialId: 12827530473249900764
     ParameterOverrides {

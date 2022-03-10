@@ -170,6 +170,6 @@ Assets {
       AssetId: "None"
     }
   }
-  SerializationVersion: 103
+  SerializationVersion: 107
   VirtualFolderPath: "Festival of Lights"
 }
