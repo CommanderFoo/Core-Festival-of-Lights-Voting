@@ -16,6 +16,7 @@ Objects {
   }
   ChildIds: 13979002585129379405
   ChildIds: 16459081430167617620
+  ChildIds: 11687797998404147298
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -28,6 +29,56 @@ Objects {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Folder {
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+}
+Objects {
+  Id: 11687797998404147298
+  Name: "Cube"
+  Transform {
+    Location {
+      X: -1125
+      Y: -555
+      Z: 120
+    }
+    Rotation {
+    }
+    Scale {
+      X: 2.49999976
+      Y: 2.49999976
+      Z: 2.49999976
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  CoreMesh {
+    MeshAsset {
+      Id: 12095835209017042614
+    }
+    Teams {
+      IsTeamCollisionEnabled: true
+      IsEnemyCollisionEnabled: true
+    }
+    StaticMesh {
+      Physics {
+        Mass: 100
+        LinearDamping: 0.01
+      }
+      BoundsScale: 1
+    }
   }
   NetworkRelevanceDistance {
     Value: "mc:eproxyrelevance:critical"
